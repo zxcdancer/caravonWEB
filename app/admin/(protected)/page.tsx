@@ -52,22 +52,29 @@ export default function AdminPage() {
     if (e.dataTransfer.files) addFiles(e.dataTransfer.files);
   }
 
-  async function uploadAll() {
-    const pending = uploads.filter(u => u.status === 'pending');
-    for (let i = 0; i < pending.length; i++) {
-      const u = pending[i];
-      setUploads(prev => prev.map(x => x.preview === u.preview ? { ...x, status: 'uploading' } : x));
+  async function uploadSingle(preview: string) {
+    const u = uploads.find(x => x.preview === preview);
+    if (!u) return;
+    setUploads(prev => prev.map(x => x.preview === preview ? { ...x, status: 'uploading' } : x));
 
-      const fd = new FormData();
-      fd.append('file', u.file);
-      fd.append('category', u.category);
+    const fd = new FormData();
+    fd.append('file', u.file);
+    fd.append('category', u.category);
 
-      const res = await fetch('/api/admin/upload', { method: 'POST', body: fd });
-      const status = res.ok ? 'done' : 'error';
-      setUploads(prev => prev.map(x => x.preview === u.preview ? { ...x, status } : x));
+    const res = await fetch('/api/admin/upload', { method: 'POST', body: fd });
+    const status = res.ok ? 'done' : 'error';
+    setUploads(prev => prev.map(x => x.preview === preview ? { ...x, status } : x));
+    if (res.ok) {
+      await loadPhotos();
+      setTimeout(() => setUploads(prev => prev.filter(x => x.preview !== preview)), 1500);
     }
-    await loadPhotos();
-    setTimeout(() => setUploads(prev => prev.filter(u => u.status !== 'done')), 1500);
+  }
+
+  async function uploadAll() {
+    const pending = uploads.filter(u => u.status === 'pending' || u.status === 'error');
+    for (const u of pending) {
+      await uploadSingle(u.preview);
+    }
   }
 
   async function deletePhoto(photo: GalleryItem) {
@@ -158,13 +165,22 @@ export default function AdminPage() {
                     )}
                     {u.status === 'uploading' && <span className="text-[#E8640A]">Uploaden...</span>}
                     {u.status === 'done' && <span className="text-green-600">✓ Klaar</span>}
-                    {u.status === 'error' && <span className="text-red-500">Fout</span>}
+                    {u.status === 'error' && (
+                      <button
+                        onClick={e => { e.stopPropagation(); uploadSingle(u.preview); }}
+                        className="text-xs bg-red-50 text-red-500 border border-red-200 px-2 py-1 rounded-lg hover:bg-red-100 transition"
+                      >
+                        ↺ Opnieuw
+                      </button>
+                    )}
                   </div>
                 </div>
               ))}
-              {pendingCount > 0 && (
+              {(pendingCount > 0 || uploads.some(u => u.status === 'error')) && (
                 <button onClick={uploadAll} className="w-full bg-[#E8640A] text-white font-bold py-3 rounded-xl hover:bg-[#c9530a] transition">
-                  {pendingCount === 1 ? '1 foto uploaden' : `${pendingCount} foto's uploaden`}
+                  {pendingCount > 0
+                    ? (pendingCount === 1 ? '1 foto uploaden' : `${pendingCount} foto's uploaden`)
+                    : 'Fouten opnieuw proberen'}
                 </button>
               )}
             </div>
