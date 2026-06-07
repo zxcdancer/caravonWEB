@@ -7,10 +7,29 @@ export async function POST(req: NextRequest) {
 
     const adminEmail = process.env.ADMIN_EMAIL || 'caravon.nl@gmail.com';
     const resendKey = process.env.RESEND_API_KEY;
+    const sheetsWebhookUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
 
     const dateStr = new Date(date).toLocaleDateString('nl-NL', {
       weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
     });
+
+    // Save to Google Sheets via Apps Script webhook
+    if (sheetsWebhookUrl) {
+      try {
+        await fetch(sheetsWebhookUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            naam, telefoon, email, voertuig,
+            service, date: dateStr, time,
+            omschrijving: omschrijving || '',
+            locale,
+          }),
+        });
+      } catch (sheetsErr) {
+        console.error('Google Sheets error:', sheetsErr);
+      }
+    }
 
     if (resendKey) {
       const { Resend } = await import('resend');
