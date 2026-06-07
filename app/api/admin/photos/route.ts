@@ -1,15 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
-import fs from 'fs/promises';
-import path from 'path';
-import { readGallery, removeGalleryItem } from '@/lib/gallery-data';
+import { list, del } from '@vercel/blob';
 
 function isAuthenticated(token: string | undefined): boolean {
   const adminToken = process.env.ADMIN_TOKEN || 'caravon-admin-secret';
   return token === adminToken;
 }
 
-export async function GET(req: NextRequest) {
+export async function GET() {
   const cookieStore = await cookies();
   const token = cookieStore.get('admin_session')?.value;
 
@@ -17,7 +15,18 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  const items = await readGallery();
+  const { blobs } = await list({ prefix: 'gallery/' });
+
+  const items = blobs
+    .filter(b => b.pathname.match(/\.(jpg|jpeg|png|webp|heic)$/i))
+    .map(b => ({
+      url: b.url,
+      filename: b.pathname,
+      category: b.pathname.startsWith('gallery/na/') ? 'na' : 'voor',
+      uploadedAt: b.uploadedAt,
+    }))
+    .sort((a, b) => new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime());
+
   return NextResponse.json(items);
 }
 
@@ -29,18 +38,9 @@ export async function DELETE(req: NextRequest) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  const { filename } = await req.json();
-  if (!filename || filename.includes('..') || filename.includes('/')) {
-    return NextResponse.json({ error: 'Invalid filename' }, { status: 400 });
-  }
+  const { url } = await req.json();
+  if (!url) return NextResponse.json({ error: 'No url' }, { status: 400 });
 
-  const filePath = path.join(process.cwd(), 'public', 'images', 'gallery', filename);
-  try {
-    await fs.unlink(filePath);
-  } catch {
-    // File may already be gone
-  }
-
-  await removeGalleryItem(filename);
+  await del(url);
   return NextResponse.json({ ok: true });
 }

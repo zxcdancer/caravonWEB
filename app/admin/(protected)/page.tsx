@@ -2,9 +2,9 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
-import Image from 'next/image';
 
 type GalleryItem = {
+  url: string;
   filename: string;
   category: 'voor' | 'na';
   uploadedAt: string;
@@ -70,12 +70,12 @@ export default function AdminPage() {
     setTimeout(() => setUploads(prev => prev.filter(u => u.status !== 'done')), 1500);
   }
 
-  async function deletePhoto(filename: string) {
-    setDeleting(filename);
+  async function deletePhoto(photo: GalleryItem) {
+    setDeleting(photo.url);
     await fetch('/api/admin/photos', {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ filename }),
+      body: JSON.stringify({ url: photo.url }),
     });
     setDeleting(null);
     await loadPhotos();
@@ -91,7 +91,6 @@ export default function AdminPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
       <header className="bg-white border-b border-gray-200 sticky top-0 z-10">
         <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -99,17 +98,10 @@ export default function AdminPage() {
             <span className="text-xs bg-[#E8640A] text-white px-2 py-0.5 rounded-full font-bold">Admin</span>
           </div>
           <div className="flex items-center gap-3">
-            <a
-              href="/nl"
-              target="_blank"
-              className="text-sm text-gray-500 hover:text-[#E8640A] transition"
-            >
+            <a href="/nl" target="_blank" className="text-sm text-gray-500 hover:text-[#E8640A] transition">
               Bekijk site →
             </a>
-            <button
-              onClick={logout}
-              className="text-sm text-gray-500 hover:text-red-500 transition"
-            >
+            <button onClick={logout} className="text-sm text-gray-500 hover:text-red-500 transition">
               Uitloggen
             </button>
           </div>
@@ -118,7 +110,6 @@ export default function AdminPage() {
 
       <main className="max-w-6xl mx-auto px-4 py-8 space-y-8">
 
-        {/* Upload area */}
         <section className="bg-white rounded-2xl border border-gray-200 p-6">
           <h2 className="font-bold text-lg text-[#1A1A1A] mb-4">Foto toevoegen</h2>
 
@@ -132,7 +123,7 @@ export default function AdminPage() {
             }`}
           >
             <div className="text-4xl mb-2">📷</div>
-            <p className="font-semibold text-gray-700">Sleep foto's hierheen</p>
+            <p className="font-semibold text-gray-700">Sleep foto&apos;s hierheen</p>
             <p className="text-sm text-gray-400 mt-1">of klik om te selecteren · JPG, PNG, WEBP, HEIC</p>
           </div>
           <input
@@ -144,16 +135,11 @@ export default function AdminPage() {
             onChange={e => e.target.files && addFiles(e.target.files)}
           />
 
-          {/* Upload queue */}
           {uploads.length > 0 && (
             <div className="mt-4 space-y-3">
               {uploads.map((u, i) => (
                 <div key={i} className="flex items-center gap-3 bg-gray-50 rounded-xl p-3">
-                  <img
-                    src={u.preview}
-                    alt=""
-                    className="w-14 h-14 object-cover rounded-lg flex-shrink-0"
-                  />
+                  <img src={u.preview} alt="" className="w-14 h-14 object-cover rounded-lg flex-shrink-0" />
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium text-gray-700 truncate">{u.file.name}</p>
                     <select
@@ -168,10 +154,7 @@ export default function AdminPage() {
                   </div>
                   <div className="flex-shrink-0 text-sm">
                     {u.status === 'pending' && (
-                      <button
-                        onClick={e => { e.stopPropagation(); setUploads(prev => prev.filter((_, j) => j !== i)); }}
-                        className="text-gray-400 hover:text-red-500"
-                      >✕</button>
+                      <button onClick={e => { e.stopPropagation(); setUploads(prev => prev.filter((_, j) => j !== i)); }} className="text-gray-400 hover:text-red-500">✕</button>
                     )}
                     {u.status === 'uploading' && <span className="text-[#E8640A]">Uploaden...</span>}
                     {u.status === 'done' && <span className="text-green-600">✓ Klaar</span>}
@@ -179,12 +162,8 @@ export default function AdminPage() {
                   </div>
                 </div>
               ))}
-
               {pendingCount > 0 && (
-                <button
-                  onClick={uploadAll}
-                  className="w-full bg-[#E8640A] text-white font-bold py-3 rounded-xl hover:bg-[#c9530a] transition"
-                >
+                <button onClick={uploadAll} className="w-full bg-[#E8640A] text-white font-bold py-3 rounded-xl hover:bg-[#c9530a] transition">
                   {pendingCount === 1 ? '1 foto uploaden' : `${pendingCount} foto's uploaden`}
                 </button>
               )}
@@ -192,21 +171,16 @@ export default function AdminPage() {
           )}
         </section>
 
-        {/* Gallery management */}
         <section className="bg-white rounded-2xl border border-gray-200 p-6">
           <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
-            <h2 className="font-bold text-lg text-[#1A1A1A]">
-              Galerij ({photos.length} foto&apos;s)
-            </h2>
+            <h2 className="font-bold text-lg text-[#1A1A1A]">Galerij ({photos.length} foto&apos;s)</h2>
             <div className="flex gap-2">
               {(['all', 'voor', 'na'] as const).map(f => (
                 <button
                   key={f}
                   onClick={() => setFilter(f)}
                   className={`text-sm px-3 py-1.5 rounded-full font-medium transition ${
-                    filter === f
-                      ? 'bg-[#E8640A] text-white'
-                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                    filter === f ? 'bg-[#E8640A] text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                   }`}
                 >
                   {f === 'all' ? 'Alle' : f === 'voor' ? 'Voor' : 'Na'}
@@ -218,33 +192,24 @@ export default function AdminPage() {
           {filtered.length === 0 ? (
             <div className="text-center py-16 text-gray-400">
               <div className="text-4xl mb-2">🖼️</div>
-              <p>{photos.length === 0 ? 'Nog geen foto\'s' : 'Geen foto\'s in deze categorie'}</p>
+              <p>{photos.length === 0 ? "Nog geen foto's" : 'Geen foto\'s in deze categorie'}</p>
             </div>
           ) : (
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
               {filtered.map(photo => (
-                <div key={photo.filename} className="group relative aspect-square rounded-xl overflow-hidden bg-gray-100">
-                  <img
-                    src={`/images/gallery/${photo.filename}`}
-                    alt=""
-                    className="w-full h-full object-cover"
-                  />
-                  {/* Category badge */}
+                <div key={photo.url} className="group relative aspect-square rounded-xl overflow-hidden bg-gray-100">
+                  <img src={photo.url} alt="" className="w-full h-full object-cover" />
                   <div className={`absolute top-2 left-2 text-xs font-bold px-2 py-0.5 rounded-full ${
-                    photo.category === 'voor'
-                      ? 'bg-blue-500 text-white'
-                      : 'bg-green-500 text-white'
+                    photo.category === 'voor' ? 'bg-blue-500 text-white' : 'bg-green-500 text-white'
                   }`}>
                     {photo.category === 'voor' ? 'Voor' : 'Na'}
                   </div>
-                  {/* Delete button */}
                   <button
-                    onClick={() => deletePhoto(photo.filename)}
-                    disabled={deleting === photo.filename}
+                    onClick={() => deletePhoto(photo)}
+                    disabled={deleting === photo.url}
                     className="absolute top-2 right-2 bg-red-500 text-white w-7 h-7 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-red-600 disabled:opacity-50"
-                    title="Verwijderen"
                   >
-                    {deleting === photo.filename ? '…' : '✕'}
+                    {deleting === photo.url ? '…' : '✕'}
                   </button>
                 </div>
               ))}
