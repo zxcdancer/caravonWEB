@@ -15,6 +15,7 @@ type UploadFile = {
   preview: string;
   category: 'voor' | 'na';
   status: 'pending' | 'uploading' | 'done' | 'error';
+  errorMsg?: string;
 };
 
 export default function AdminPage() {
@@ -62,8 +63,12 @@ export default function AdminPage() {
     fd.append('category', u.category);
 
     const res = await fetch('/api/admin/upload', { method: 'POST', body: fd });
-    const status = res.ok ? 'done' : 'error';
-    setUploads(prev => prev.map(x => x.preview === preview ? { ...x, status } : x));
+    if (res.ok) {
+      setUploads(prev => prev.map(x => x.preview === preview ? { ...x, status: 'done' } : x));
+    } else {
+      const data = await res.json().catch(() => ({}));
+      setUploads(prev => prev.map(x => x.preview === preview ? { ...x, status: 'error', errorMsg: data.error || `HTTP ${res.status}` } : x));
+    }
     if (res.ok) {
       await loadPhotos();
       setTimeout(() => setUploads(prev => prev.filter(x => x.preview !== preview)), 1500);
@@ -166,12 +171,15 @@ export default function AdminPage() {
                     {u.status === 'uploading' && <span className="text-[#E8640A]">Uploaden...</span>}
                     {u.status === 'done' && <span className="text-green-600">✓ Klaar</span>}
                     {u.status === 'error' && (
-                      <button
-                        onClick={e => { e.stopPropagation(); uploadSingle(u.preview); }}
-                        className="text-xs bg-red-50 text-red-500 border border-red-200 px-2 py-1 rounded-lg hover:bg-red-100 transition"
-                      >
-                        ↺ Opnieuw
-                      </button>
+                      <div className="flex flex-col items-end gap-1">
+                        <span className="text-xs text-red-400 max-w-[140px] text-right truncate" title={u.errorMsg}>{u.errorMsg || 'Fout'}</span>
+                        <button
+                          onClick={e => { e.stopPropagation(); uploadSingle(u.preview); }}
+                          className="text-xs bg-red-50 text-red-500 border border-red-200 px-2 py-1 rounded-lg hover:bg-red-100 transition"
+                        >
+                          ↺ Opnieuw
+                        </button>
+                      </div>
                     )}
                   </div>
                 </div>

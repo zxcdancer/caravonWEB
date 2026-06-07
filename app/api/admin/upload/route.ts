@@ -26,10 +26,15 @@ export async function POST(req: NextRequest) {
   const ext = file.name.split('.').pop()?.toLowerCase() || 'jpg';
   const filename = `gallery/${category}/photo-${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
 
-  const blob = await put(filename, file, {
-    access: 'public',
-    contentType: file.type || 'image/jpeg',
-  });
-
-  return NextResponse.json({ ok: true, url: blob.url });
+  try {
+    const blob = await put(filename, file, {
+      access: 'public',
+      contentType: file.type || 'image/jpeg',
+    });
+    return NextResponse.json({ ok: true, url: blob.url });
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : String(err);
+    console.error('Blob upload error:', message);
+    return NextResponse.json({ error: message }, { status: 500 });
+  }
 }
