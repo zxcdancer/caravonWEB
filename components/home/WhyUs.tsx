@@ -1,0 +1,42 @@
+'use client';
+
+import { useTranslations } from 'next-intl';
+
+const WHY_KEYS = ['kwaliteit', 'prijzen', 'mobiel', 'ervaring'] as const;
+const WHY_ICONS: Record<string, string> = {
+  kwaliteit:      '🏆',
+  prijzen:        '💶',
+  mobiel:         '🚐',
+  ervaring:       '🛠️',
+};
+
+export default function WhyUs() {
+  const t = useTranslations('whyUs');
+
+  return (
+    <section className="py-20" style={{ background: '#F5C5A3' }}>
+      <div className="w-full max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="w-full text-center mb-12">
+          <h2 className="text-4xl font-black text-dark">{t('title')}</h2>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {WHY_KEYS.map(key => (
+            <div
+              key={key}
+              className="bg-white/70 backdrop-blur rounded-2xl p-6 text-center"
+            >
+              <div className="text-4xl mb-4">{WHY_ICONS[key]}</div>
+              <h3 className="font-black text-dark text-lg mb-2">
+                {t(`items.${key}.title`)}
+              </h3>
+              <p className="text-dark/60 text-sm leading-relaxed">
+                {t(`items.${key}.desc`)}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

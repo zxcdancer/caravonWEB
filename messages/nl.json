@@ -1,0 +1,143 @@
+{
+  "nav": {
+    "home": "Home",
+    "diensten": "Diensten",
+    "galerij": "Galerij",
+    "afspraak": "Afspraak",
+    "overOns": "Over ons",
+    "contact": "Contact",
+    "afspraakButton": "Maak een afspraak"
+  },
+  "hero": {
+    "slogan": "WIJ ZORGEN,\nU REIST",
+    "subtitle": "Kwalitatieve reparaties en onderhoud voor campers & caravans",
+    "cta": "Maak een afspraak",
+    "ctaSecondary": "Bekijk onze diensten"
+  },
+  "services": {
+    "title": "Onze diensten",
+    "subtitle": "Alles voor uw camper of caravan op één plek",
+    "viewAll": "Bekijk alle diensten",
+    "mobileService": "Mobiele service op locatie",
+    "mobileServiceDesc": "Wij komen naar u toe — waar u ook bent in Nederland",
+    "mobileServiceBadge": "Uniek aanbod",
+    "bookAppointment": "Afspraak maken",
+    "items": {
+      "onderhoud": { "title": "Onderhoud & service" },
+      "diagnose": { "title": "Diagnose & inspectie" },
+      "motor": { "title": "Motor- en transmissiereparatie" },
+      "remmen": { "title": "Remmen & onderstel" },
+      "elektronica": { "title": "Elektronica & elektrische systemen" },
+      "woonmodule": { "title": "Reparatie van woonmodule" },
+      "installaties": { "title": "Gas-, water- en verwarmingsinstallaties" },
+      "zonnepanelen": { "title": "Zonnepanelen & accusystemen" },
+      "mobiel": { "title": "Mobiele service op locatie" }
+    }
+  },
+  "whyUs": {
+    "title": "Waarom CARAVON.NL?",
+    "items": {
+      "kwaliteit": {
+        "title": "Topkwaliteit",
+        "desc": "Wij gebruiken alleen originele en hoogwaardige onderdelen voor langdurige prestaties."
+      },
+      "prijzen": {
+        "title": "Eerlijke prijzen",
+        "desc": "Transparante tarieven zonder verrassingen. Altijd een duidelijke offerte vooraf."
+      },
+      "mobiel": {
+        "title": "Mobiele service",
+        "desc": "Wij komen naar u toe, waar u ook bent in Nederland."
+      },
+      "ervaring": {
+        "title": "Jarenlange ervaring",
+        "desc": "Gespecialiseerd in campers en caravans — uw voertuig is in veilige handen."
+      }
+    }
+  },
+  "cta": {
+    "title": "Klaar om te rijden?",
+    "subtitle": "Maak vandaag nog een afspraak en wij zorgen voor de rest.",
+    "button": "Maak een afspraak",
+    "or": "of bel ons:",
+    "phone": "+3107777777"
+  },
+  "booking": {
+    "title": "Maak een afspraak",
+    "subtitle": "Selecteer een dienst, kies een datum en vul uw gegevens in.",
+    "step1": {
+      "title": "Kies een dienst",
+      "subtitle": "Welke service heeft u nodig?"
+    },
+    "step2": {
+      "title": "Kies een datum",
+      "subtitle": "Selecteer een datum en tijdstip"
+    },
+    "step3": {
+      "title": "Uw gegevens",
+      "subtitle": "Vul uw contactgegevens in"
+    },
+    "form": {
+      "naam": "Naam",
+      "naamPlaceholder": "Uw volledige naam",
+      "telefoon": "Telefoonnummer",
+      "telefoonPlaceholder": "+31 6 00 00 00 00",
+      "email": "E-mailadres",
+      "emailPlaceholder": "uw@email.nl",
+      "voertuig": "Type voertuig",
+      "voertuigOptions": {
+        "camper": "Camper",
+        "caravan": "Caravan",
+        "anders": "Anders"
+      },
+      "omschrijving": "Omschrijving probleem",
+      "omschrijvingPlaceholder": "Beschrijf kort uw probleem of wens...",
+      "submit": "Afspraak bevestigen",
+      "back": "Terug",
+      "next": "Volgende"
+    },
+    "success": {
+      "title": "Afspraak bevestigd!",
+      "message": "Wij hebben uw afspraak ontvangen. U ontvangt een bevestiging per e-mail.",
+      "back": "Terug naar home"
+    }
+  },
+  "gallery": {
+    "title": "Ons werk",
+    "subtitle": "Bekijk onze recente reparaties en restauraties",
+    "before": "Voor",
+    "after": "Na"
+  },
+  "about": {
+    "title": "Over CARAVON.NL",
+    "subtitle": "Uw specialist in camper- en caravanonderhoud",
+    "story": "CARAVON.NL is uw betrouwbare partner voor onderhoud en reparatie van campers en caravans. Met jarenlange ervaring en passie voor het vak zorgen wij dat u altijd veilig en comfortabel op weg kunt.",
+    "mission": "Onze missie is simpel: wij zorgen, u reist. Wij nemen de technische zorgen van u over, zodat u zich volledig kunt concentreren op het genieten van uw reis.",
+    "values": {
+      "kwaliteit": "Kwaliteit",
+      "betrouwbaarheid": "Betrouwbaarheid",
+      "service": "Service op maat"
+    }
+  },
+  "contact": {
+    "title": "Neem contact op",
+    "subtitle": "Wij helpen u graag verder",
+    "email": "E-mail",
+    "phone": "Telefoon",
+    "website": "Website",
+    "hours": "Openingstijden",
+    "hoursValue": "Ma–Vr: 08:00–17:00",
+    "form": {
+      "naam": "Naam",
+      "email": "E-mail",
+      "bericht": "Bericht",
+      "submit": "Verstuur bericht"
+    }
+  },
+  "footer": {
+    "tagline": "Kwalitatieve reparaties voor campers & caravans",
+    "links": "Snelle links",
+    "contact": "Contact",
+    "rights": "Alle rechten voorbehouden"
+  }
+}

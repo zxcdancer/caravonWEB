@@ -1,0 +1,143 @@
+{
+  "nav": {
+    "home": "Home",
+    "diensten": "Services",
+    "galerij": "Gallery",
+    "afspraak": "Appointment",
+    "overOns": "About us",
+    "contact": "Contact",
+    "afspraakButton": "Book appointment"
+  },
+  "hero": {
+    "slogan": "WE CARE,\nYOU TRAVEL",
+    "subtitle": "Quality repairs and maintenance for motorhomes & caravans",
+    "cta": "Book an appointment",
+    "ctaSecondary": "View our services"
+  },
+  "services": {
+    "title": "Our services",
+    "subtitle": "Everything for your motorhome or caravan in one place",
+    "viewAll": "View all services",
+    "mobileService": "Mobile on-site service",
+    "mobileServiceDesc": "We come to you — wherever you are in the Netherlands",
+    "mobileServiceBadge": "Unique offering",
+    "bookAppointment": "Book appointment",
+    "items": {
+      "onderhoud": { "title": "Maintenance & service" },
+      "diagnose": { "title": "Diagnosis & inspection" },
+      "motor": { "title": "Engine & transmission repair" },
+      "remmen": { "title": "Brakes & chassis" },
+      "elektronica": { "title": "Electronics & electrical systems" },
+      "woonmodule": { "title": "Living module repair" },
+      "installaties": { "title": "Gas, water & heating systems" },
+      "zonnepanelen": { "title": "Solar panels & battery systems" },
+      "mobiel": { "title": "Mobile service on location" }
+    }
+  },
+  "whyUs": {
+    "title": "Why CARAVON.NL?",
+    "items": {
+      "kwaliteit": {
+        "title": "Top quality",
+        "desc": "We only use original and high-quality parts for long-lasting performance."
+      },
+      "prijzen": {
+        "title": "Fair prices",
+        "desc": "Transparent rates without surprises. Always a clear quote in advance."
+      },
+      "mobiel": {
+        "title": "Mobile service",
+        "desc": "We come to you, wherever you are in the Netherlands."
+      },
+      "ervaring": {
+        "title": "Years of experience",
+        "desc": "Specialized in motorhomes and caravans — your vehicle is in safe hands."
+      }
+    }
+  },
+  "cta": {
+    "title": "Ready to hit the road?",
+    "subtitle": "Book an appointment today and we'll take care of the rest.",
+    "button": "Book an appointment",
+    "or": "or call us:",
+    "phone": "+3107777777"
+  },
+  "booking": {
+    "title": "Book an appointment",
+    "subtitle": "Select a service, choose a date and fill in your details.",
+    "step1": {
+      "title": "Choose a service",
+      "subtitle": "Which service do you need?"
+    },
+    "step2": {
+      "title": "Choose a date",
+      "subtitle": "Select a date and time"
+    },
+    "step3": {
+      "title": "Your details",
+      "subtitle": "Fill in your contact details"
+    },
+    "form": {
+      "naam": "Name",
+      "naamPlaceholder": "Your full name",
+      "telefoon": "Phone number",
+      "telefoonPlaceholder": "+31 6 00 00 00 00",
+      "email": "Email address",
+      "emailPlaceholder": "your@email.com",
+      "voertuig": "Vehicle type",
+      "voertuigOptions": {
+        "camper": "Motorhome",
+        "caravan": "Caravan",
+        "anders": "Other"
+      },
+      "omschrijving": "Problem description",
+      "omschrijvingPlaceholder": "Briefly describe your problem or request...",
+      "submit": "Confirm appointment",
+      "back": "Back",
+      "next": "Next"
+    },
+    "success": {
+      "title": "Appointment confirmed!",
+      "message": "We have received your appointment. You will receive a confirmation by email.",
+      "back": "Back to home"
+    }
+  },
+  "gallery": {
+    "title": "Our work",
+    "subtitle": "View our recent repairs and restorations",
+    "before": "Before",
+    "after": "After"
+  },
+  "about": {
+    "title": "About CARAVON.NL",
+    "subtitle": "Your specialist in motorhome and caravan maintenance",
+    "story": "CARAVON.NL is your reliable partner for maintenance and repair of motorhomes and caravans. With years of experience and passion for the trade, we ensure you can always travel safely and comfortably.",
+    "mission": "Our mission is simple: we care, you travel. We take care of your technical worries so you can fully concentrate on enjoying your journey.",
+    "values": {
+      "kwaliteit": "Quality",
+      "betrouwbaarheid": "Reliability",
+      "service": "Tailored service"
+    }
+  },
+  "contact": {
+    "title": "Get in touch",
+    "subtitle": "We are happy to help you",
+    "email": "Email",
+    "phone": "Phone",
+    "website": "Website",
+    "hours": "Opening hours",
+    "hoursValue": "Mon–Fri: 08:00–17:00",
+    "form": {
+      "naam": "Name",
+      "email": "Email",
+      "bericht": "Message",
+      "submit": "Send message"
+    }
+  },
+  "footer": {
+    "tagline": "Quality repairs for motorhomes & caravans",
+    "links": "Quick links",
+    "contact": "Contact",
+    "rights": "All rights reserved"
+  }
+}

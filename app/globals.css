@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+  --color-peach: #F5C5A3;
+  --color-peach-light: #FBE8D8;
+  --color-orange: #E8640A;
+  --color-orange-dark: #C45208;
+  --color-dark: #1A1A1A;
+  --color-gray: #6B6B6B;
+  --color-gray-light: #F5F5F5;
+
+  --font-sans: 'Montserrat', sans-serif;
+}
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    height: 100%;
+  }
+
+  body {
+    min-height: 100%;
+    color: #1A1A1A;
+    font-family: 'Montserrat', sans-serif;
+  }
+}
