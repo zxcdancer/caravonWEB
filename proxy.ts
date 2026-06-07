@@ -1,9 +1,11 @@
 import createMiddleware from 'next-intl/middleware';
 import { routing } from './i18n/routing';
 
-const intlMiddleware = createMiddleware(routing);
+const intlProxy = createMiddleware(routing);
 
-export default intlMiddleware;
+export function proxy(...args: Parameters<typeof intlProxy>) {
+  return intlProxy(...args);
+}
 
 export const config = {
   matcher: ['/((?!api|_next|_vercel|admin|.*\\..*).*)'],
