@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
-import { put } from '@vercel/blob';
+import { writeFile, mkdir } from 'fs/promises';
+import path from 'path';
 
 function isAuthenticated(token: string | undefined): boolean {
   const adminToken = process.env.ADMIN_TOKEN || 'caravon-admin-secret';
@@ -24,17 +25,22 @@ export async function POST(req: NextRequest) {
   }
 
   const ext = file.name.split('.').pop()?.toLowerCase() || 'jpg';
-  const filename = `gallery/${category}/photo-${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
+  const filename = `photo-${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
+  const relDir = `/gallery/${category}`;
+  const absDir = path.join(process.cwd(), 'public', 'gallery', category);
+  const absPath = path.join(absDir, filename);
 
   try {
-    const blob = await put(filename, file, {
-      access: 'public',
-      contentType: file.type || 'image/jpeg',
-    });
-    return NextResponse.json({ ok: true, url: blob.url });
+    await mkdir(absDir, { recursive: true });
+    const buffer = Buffer.from(await file.arrayBuffer());
+    await writeFile(absPath, buffer);
+
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || '';
+    const url = `${baseUrl}${relDir}/${filename}`;
+    return NextResponse.json({ ok: true, url });
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : String(err);
-    console.error('Blob upload error:', message);
+    console.error('Upload error:', message);
     return NextResponse.json({ error: message }, { status: 500 });
   }
 }
