@@ -67,7 +67,7 @@ export async function POST(req: NextRequest) {
           <p><strong>Dienst:</strong> ${service}</p>
           <p><strong>Datum:</strong> ${dateStr}</p>
           <p><strong>Tijdstip:</strong> ${time}</p>
-          <p>Heeft u vragen? Neem gerust contact met ons op via caravon.nl@gmail.com of bel +3107777777.</p>
+          <p>Heeft u vragen? Neem gerust contact met ons op via caravon.nl@gmail.com of bel +31641380360.</p>
           <p>Tot ziens!<br/>Team CARAVON.NL</p>
         ` : `
           <h2>Your appointment is confirmed! ✅</h2>
@@ -76,7 +76,7 @@ export async function POST(req: NextRequest) {
           <p><strong>Service:</strong> ${service}</p>
           <p><strong>Date:</strong> ${dateStr}</p>
           <p><strong>Time:</strong> ${time}</p>
-          <p>Questions? Contact us at caravon.nl@gmail.com or call +3107777777.</p>
+          <p>Questions? Contact us at caravon.nl@gmail.com or call +31641380360.</p>
           <p>See you soon!<br/>Team CARAVON.NL</p>
         `,
       });

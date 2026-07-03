@@ -25,7 +25,7 @@ export default function CtaBanner() {
           </Link>
           <div className="text-white/40 text-sm">
             {t('or')}{' '}
-            <a href="tel:+3107777777" className="text-white font-bold hover:text-orange transition-colors">
+            <a href="tel:+31641380360" className="text-white font-bold hover:text-orange transition-colors">
               {t('phone')}
             </a>
           </div>

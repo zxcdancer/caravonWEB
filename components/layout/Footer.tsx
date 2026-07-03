@@ -27,8 +27,8 @@ export default function Footer() {
               <a href="mailto:caravon.nl@gmail.com" className="hover:text-white transition-colors">
                 caravon.nl@gmail.com
               </a>
-              <a href="tel:+3107777777" className="hover:text-white transition-colors">
-                +3107777777
+              <a href="tel:+31641380360" className="hover:text-white transition-colors">
+                +31641380360
               </a>
             </div>
           </div>
@@ -67,8 +67,8 @@ export default function Footer() {
               <a href="mailto:caravon.nl@gmail.com" className="hover:text-white transition-colors">
                 caravon.nl@gmail.com
               </a>
-              <a href="tel:+3107777777" className="hover:text-white transition-colors">
-                +3107777777
+              <a href="tel:+31641380360" className="hover:text-white transition-colors">
+                +31641380360
               </a>
               <span className="mt-2 text-white/40 text-xs">Ma–Vr: 08:00–17:00</span>
             </div>
