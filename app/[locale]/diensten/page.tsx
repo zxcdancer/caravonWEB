@@ -49,7 +49,7 @@ export default async function DienstenPage() {
               <p className="text-white/80 text-sm">{t('mobileServiceDesc')}</p>
             </div>
             <Link
-              href={`/${locale}/afspraak`}
+              href={locale === 'nl' ? '/afspraak' : `/${locale}/afspraak`}
               className="shrink-0 bg-white text-orange font-black px-8 py-3.5 rounded-full hover:bg-white/90 transition-colors text-sm whitespace-nowrap"
             >
               {t('bookAppointment')}
@@ -64,7 +64,7 @@ export default async function DienstenPage() {
           <h2 className="text-3xl font-black text-white mb-4">{tc('title')}</h2>
           <p className="text-white/60 mb-6">{tc('subtitle')}</p>
           <Link
-            href={`/${locale}/afspraak`}
+            href={locale === 'nl' ? '/afspraak' : `/${locale}/afspraak`}
             className="inline-block bg-orange text-white font-bold px-8 py-4 rounded-full hover:bg-orange-dark transition-colors"
           >
             {tc('button')}

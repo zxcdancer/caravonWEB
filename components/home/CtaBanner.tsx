@@ -18,7 +18,7 @@ export default function CtaBanner() {
         </p>
         <div className="flex flex-wrap items-center justify-center gap-4">
           <Link
-            href={`/${locale}/afspraak`}
+            href={locale === 'nl' ? '/afspraak' : `/${locale}/afspraak`}
             className="bg-orange text-white font-bold text-base px-8 py-4 rounded-full hover:bg-orange-dark transition-colors"
           >
             {t('button')}

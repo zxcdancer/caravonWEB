@@ -58,7 +58,7 @@ export default async function OverOnsPage() {
         <div className="max-w-2xl mx-auto px-4">
           <h2 className="text-3xl font-black text-white mb-4">{tc('title')}</h2>
           <Link
-            href={`/${locale}/afspraak`}
+            href={locale === 'nl' ? '/afspraak' : `/${locale}/afspraak`}
             className="inline-block bg-orange text-white font-bold px-8 py-4 rounded-full hover:bg-orange-dark transition-colors"
           >
             {tc('button')}

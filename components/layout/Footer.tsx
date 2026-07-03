@@ -10,7 +10,7 @@ export default function Footer() {
   const locale = useLocale();
   const year = new Date().getFullYear();
 
-  const localePath = (path: string) => `/${locale}${path}`;
+  const localePath = (path: string) => locale === 'nl' ? path : `/${locale}${path}`;
 
   return (
     <footer className="bg-dark text-white pt-12 pb-6">

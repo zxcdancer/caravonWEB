@@ -23,8 +23,9 @@ export default function Header({ locale }: HeaderProps) {
   const t = useTranslations('nav');
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const localePath = (path: string) => `/${locale}${path}`;
+  const localePath = (path: string) => locale === 'nl' ? path : `/${locale}${path}`;
   const otherLocale = locale === 'nl' ? 'en' : 'nl';
+  const otherLocalePath = otherLocale === 'nl' ? '/' : `/${otherLocale}`;
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
@@ -60,7 +61,7 @@ export default function Header({ locale }: HeaderProps) {
         {/* Right actions */}
         <div className="hidden md:flex items-center gap-4 shrink-0">
           <Link
-            href={`/${otherLocale}`}
+            href={otherLocalePath}
             className="text-xs font-bold text-gray-400 hover:text-dark uppercase tracking-wider transition-colors"
           >
             {otherLocale}
@@ -101,7 +102,7 @@ export default function Header({ locale }: HeaderProps) {
             </Link>
           ))}
           <div className="flex items-center gap-3 pt-2 border-t border-gray-100">
-            <Link href={`/${otherLocale}`} className="text-xs font-bold text-gray-400 uppercase">
+            <Link href={otherLocalePath} className="text-xs font-bold text-gray-400 uppercase">
               {otherLocale}
             </Link>
             <Link
