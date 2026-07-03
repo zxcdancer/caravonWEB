@@ -6,6 +6,7 @@ import { routing } from '@/i18n/routing';
 import IntroAnimation from '@/components/intro/IntroAnimation';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import CookieBanner from '@/components/CookieBanner';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -33,6 +34,7 @@ export default async function LocaleLayout({
           <Header locale={locale} />
           <main className="flex-1 w-full">{children}</main>
           <Footer />
+          <CookieBanner />
         </NextIntlClientProvider>
       </body>
     </html>

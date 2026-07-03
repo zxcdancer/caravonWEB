@@ -75,8 +75,12 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="pt-6 text-center text-white/30 text-xs">
-          © {year} CARAVON.NL — {t('rights')}
+        <div className="pt-6 text-center text-white/30 text-xs flex flex-col sm:flex-row items-center justify-center gap-2">
+          <span>© {year} CARAVON.NL — {t('rights')}</span>
+          <span className="hidden sm:inline">·</span>
+          <Link href={localePath('/privacy')} className="hover:text-white/60 transition-colors">
+            Privacyverklaring
+          </Link>
         </div>
       </div>
     </footer>
