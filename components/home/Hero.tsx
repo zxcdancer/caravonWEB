@@ -34,12 +34,6 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="max-w-2xl"
         >
-          {/* Eyebrow */}
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white text-xs font-bold px-4 py-2 rounded-full mb-6 uppercase tracking-widest border border-white/20">
-            <span className="text-orange">★</span>
-            <span>RV Reparatie Specialist</span>
-          </div>
-
           {/* Main headline */}
           <h1 className="text-5xl sm:text-7xl font-black text-white leading-[0.95] mb-6 whitespace-pre-line drop-shadow-lg">
             {t('slogan')}
