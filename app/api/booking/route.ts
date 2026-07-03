@@ -1,9 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { saveBooking } from '@/lib/db';
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const { naam, telefoon, email, voertuig, omschrijving, service, date, time, locale } = body;
+
+    // Save to SQLite database
+    try {
+      saveBooking({ naam, telefoon, email, voertuig, service, date, time, omschrijving: omschrijving || '', locale: locale || 'nl' });
+    } catch (dbErr) {
+      console.error('DB save error:', dbErr);
+    }
 
     const adminEmail = process.env.ADMIN_EMAIL || 'info@caravon.nl';
     const resendKey = process.env.RESEND_API_KEY;
