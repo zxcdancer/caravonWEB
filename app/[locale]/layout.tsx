@@ -7,6 +7,7 @@ import IntroAnimation from '@/components/intro/IntroAnimation';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import CookieBanner from '@/components/CookieBanner';
+import WhatsAppButton from '@/components/WhatsAppButton';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -35,6 +36,7 @@ export default async function LocaleLayout({
           <main className="flex-1 w-full">{children}</main>
           <Footer />
           <CookieBanner />
+          <WhatsAppButton />
         </NextIntlClientProvider>
       </body>
     </html>
