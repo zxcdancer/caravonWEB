@@ -46,18 +46,22 @@ export default function Hero() {
 
           {/* CTAs */}
           <div className="flex flex-wrap gap-4">
-            <Link
-              href={`/${locale}/afspraak`}
-              className="bg-orange text-white font-bold text-base px-8 py-4 rounded-full hover:bg-orange-dark transition-colors shadow-lg shadow-black/30"
-            >
-              {t('cta')}
-            </Link>
-            <Link
-              href={`/${locale}/diensten`}
-              className="bg-white/15 backdrop-blur-sm text-white font-bold text-base px-8 py-4 rounded-full hover:bg-white/25 transition-colors border border-white/30"
-            >
-              {t('ctaSecondary')}
-            </Link>
+            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.15 }}>
+              <Link
+                href={`/${locale}/afspraak`}
+                className="inline-block bg-orange text-white font-bold text-base px-8 py-4 rounded-full hover:bg-orange-dark transition-colors shadow-lg shadow-black/30"
+              >
+                {t('cta')}
+              </Link>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.15 }}>
+              <Link
+                href={`/${locale}/diensten`}
+                className="inline-block bg-white/15 backdrop-blur-sm text-white font-bold text-base px-8 py-4 rounded-full hover:bg-white/25 transition-colors border border-white/30"
+              >
+                {t('ctaSecondary')}
+              </Link>
+            </motion.div>
           </div>
 
           {/* Stats */}

@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
+import { motion } from 'framer-motion';
 import { getServiceCategories } from '@/lib/services-data';
 
 export default function Services() {
@@ -19,7 +20,10 @@ export default function Services() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {categories.map((cat) => (
-            <div key={cat.title} className="p-6 rounded-2xl border border-gray-100 bg-gray-50">
+            <motion.div key={cat.title} className="p-6 rounded-2xl border border-gray-100 bg-gray-50 cursor-default"
+              whileHover={{ y: -4, boxShadow: '0 12px 28px rgba(0,0,0,0.08)' }}
+              transition={{ duration: 0.2 }}
+            >
               <h3 className="font-black text-dark text-sm uppercase tracking-wider mb-4 pb-3 border-b border-gray-200">
                 {cat.title}
               </h3>
@@ -36,10 +40,13 @@ export default function Services() {
                   </li>
                 )}
               </ul>
-            </div>
+            </motion.div>
           ))}
 
-          <div className="p-6 rounded-2xl border-2 border-orange bg-orange/5 flex flex-col justify-between">
+          <motion.div className="p-6 rounded-2xl border-2 border-orange bg-orange/5 flex flex-col justify-between"
+            whileHover={{ y: -4, boxShadow: '0 12px 28px rgba(232,100,10,0.15)' }}
+            transition={{ duration: 0.2 }}
+          >
             <div>
               <div className="text-xs font-bold text-orange uppercase tracking-widest mb-3">
                 ★ {t('mobileServiceBadge')}
@@ -53,7 +60,7 @@ export default function Services() {
             >
               {t('bookAppointment')}
             </Link>
-          </div>
+          </motion.div>
         </div>
 
         <div className="text-center mt-10">

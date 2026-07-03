@@ -23,7 +23,7 @@ export default async function DienstenPage() {
         <div className="w-full max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
             {categories.map((cat) => (
-              <div key={cat.title} className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
+              <div key={cat.title} className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-200">
                 <h2 className="text-base font-black text-dark uppercase tracking-wider pb-4 mb-4 border-b border-gray-100">
                   {cat.title}
                 </h2>

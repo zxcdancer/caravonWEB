@@ -25,7 +25,7 @@ export default async function ContactPage() {
                   { icon: '📞', label: t('phone'), value: '+31641380360', href: 'tel:+31641380360' },
                   { icon: '🕐', label: t('hours'), value: t('hoursValue'), href: null },
                 ].map(({ icon, label, value, href }) => (
-                  <div key={label} className="flex items-start gap-4 p-4 rounded-xl bg-gray-50">
+                  <div key={label} className="flex items-start gap-4 p-4 rounded-xl bg-gray-50 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200">
                     <span className="text-2xl">{icon}</span>
                     <div>
                       <div className="text-xs font-bold text-dark/40 uppercase tracking-wider mb-0.5">{label}</div>
