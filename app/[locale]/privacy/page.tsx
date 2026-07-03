@@ -18,7 +18,7 @@ function PrivacyNL() {
           <h2 className="text-xl font-black text-dark mb-3">1. Wie zijn wij?</h2>
           <p className="text-dark/70 leading-relaxed">
             CARAVON.NL is een bedrijf gespecialiseerd in onderhoud en reparatie van campers en caravans in Nederland.
-            U kunt contact met ons opnemen via <a href="mailto:caravon.nl@gmail.com" className="text-orange hover:underline">caravon.nl@gmail.com</a> of telefonisch via <a href="tel:+31641380360" className="text-orange hover:underline">+31641380360</a>.
+            U kunt contact met ons opnemen via <a href="mailto:info@caravon.nl" className="text-orange hover:underline">info@caravon.nl</a> of telefonisch via <a href="tel:+31641380360" className="text-orange hover:underline">+31641380360</a>.
           </p>
         </section>
 
@@ -60,14 +60,14 @@ function PrivacyNL() {
         <section className="mb-8">
           <h2 className="text-xl font-black text-dark mb-3">6. Uw rechten</h2>
           <p className="text-dark/70 leading-relaxed">
-            U heeft het recht om uw persoonsgegevens in te zien, te corrigeren of te laten verwijderen. Neem hiervoor contact op via <a href="mailto:caravon.nl@gmail.com" className="text-orange hover:underline">caravon.nl@gmail.com</a>.
+            U heeft het recht om uw persoonsgegevens in te zien, te corrigeren of te laten verwijderen. Neem hiervoor contact op via <a href="mailto:info@caravon.nl" className="text-orange hover:underline">info@caravon.nl</a>.
           </p>
         </section>
 
         <section>
           <h2 className="text-xl font-black text-dark mb-3">7. Contact</h2>
           <p className="text-dark/70 leading-relaxed">
-            Heeft u vragen over deze privacyverklaring? Neem dan contact met ons op via <a href="mailto:caravon.nl@gmail.com" className="text-orange hover:underline">caravon.nl@gmail.com</a>.
+            Heeft u vragen over deze privacyverklaring? Neem dan contact met ons op via <a href="mailto:info@caravon.nl" className="text-orange hover:underline">info@caravon.nl</a>.
           </p>
         </section>
       </div>
@@ -86,7 +86,7 @@ function PrivacyEN() {
           <h2 className="text-xl font-black text-dark mb-3">1. Who are we?</h2>
           <p className="text-dark/70 leading-relaxed">
             CARAVON.NL is a company specialised in maintenance and repair of motorhomes and caravans in the Netherlands.
-            You can contact us at <a href="mailto:caravon.nl@gmail.com" className="text-orange hover:underline">caravon.nl@gmail.com</a> or by phone at <a href="tel:+31641380360" className="text-orange hover:underline">+31641380360</a>.
+            You can contact us at <a href="mailto:info@caravon.nl" className="text-orange hover:underline">info@caravon.nl</a> or by phone at <a href="tel:+31641380360" className="text-orange hover:underline">+31641380360</a>.
           </p>
         </section>
 
@@ -128,14 +128,14 @@ function PrivacyEN() {
         <section className="mb-8">
           <h2 className="text-xl font-black text-dark mb-3">6. Your rights</h2>
           <p className="text-dark/70 leading-relaxed">
-            You have the right to access, correct or delete your personal data. Please contact us at <a href="mailto:caravon.nl@gmail.com" className="text-orange hover:underline">caravon.nl@gmail.com</a>.
+            You have the right to access, correct or delete your personal data. Please contact us at <a href="mailto:info@caravon.nl" className="text-orange hover:underline">info@caravon.nl</a>.
           </p>
         </section>
 
         <section>
           <h2 className="text-xl font-black text-dark mb-3">7. Contact</h2>
           <p className="text-dark/70 leading-relaxed">
-            Questions about this privacy policy? Contact us at <a href="mailto:caravon.nl@gmail.com" className="text-orange hover:underline">caravon.nl@gmail.com</a>.
+            Questions about this privacy policy? Contact us at <a href="mailto:info@caravon.nl" className="text-orange hover:underline">info@caravon.nl</a>.
           </p>
         </section>
       </div>

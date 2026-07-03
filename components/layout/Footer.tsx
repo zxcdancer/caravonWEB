@@ -24,8 +24,8 @@ export default function Footer() {
             </div>
             <p className="text-white/60 text-sm leading-relaxed">{t('tagline')}</p>
             <div className="mt-4 flex flex-col gap-1 text-sm text-white/60">
-              <a href="mailto:caravon.nl@gmail.com" className="hover:text-white transition-colors">
-                caravon.nl@gmail.com
+              <a href="mailto:info@caravon.nl" className="hover:text-white transition-colors">
+                info@caravon.nl
               </a>
               <a href="tel:+31641380360" className="hover:text-white transition-colors">
                 +31641380360
@@ -64,8 +64,8 @@ export default function Footer() {
             </h3>
             <div className="flex flex-col gap-2 text-sm text-white/60">
               <span>caravon.nl</span>
-              <a href="mailto:caravon.nl@gmail.com" className="hover:text-white transition-colors">
-                caravon.nl@gmail.com
+              <a href="mailto:info@caravon.nl" className="hover:text-white transition-colors">
+                info@caravon.nl
               </a>
               <a href="tel:+31641380360" className="hover:text-white transition-colors">
                 +31641380360

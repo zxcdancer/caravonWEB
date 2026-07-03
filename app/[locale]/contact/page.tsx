@@ -21,7 +21,7 @@ export default async function ContactPage() {
               <div className="flex flex-col gap-4">
                 {[
                   { icon: '🌐', label: t('website'), value: 'caravon.nl', href: 'https://caravon.nl' },
-                  { icon: '✉️', label: t('email'), value: 'caravon.nl@gmail.com', href: 'mailto:caravon.nl@gmail.com' },
+                  { icon: '✉️', label: t('email'), value: 'info@caravon.nl', href: 'mailto:info@caravon.nl' },
                   { icon: '📞', label: t('phone'), value: '+31641380360', href: 'tel:+31641380360' },
                   { icon: '🕐', label: t('hours'), value: t('hoursValue'), href: null },
                 ].map(({ icon, label, value, href }) => (
